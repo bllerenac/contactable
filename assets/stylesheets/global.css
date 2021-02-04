@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --font-gray: #595959;
+    --font-gray-ligth: #BFBFBF; /* fields in login*/
+    --font-gray-dark: #262626;
+    --font-blue: #2962FF;
+    --font-red: #F5222D;
+    --background-black: #000000;
+    --background-gray: #E8EAED;
+    --background-gray-light: #F5F5F5; /* hover in contacts*/
+    --shadow-black: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.font-title {
+    font-size: 30px;
+    line-height: 38px;
+}
+
+.font-subtitle {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.font-regular {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.font-small {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.font-error {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.font-fields {
+    font-size: 16px;
+    line-height: 24px;
+}
