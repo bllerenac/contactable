@@ -1,7 +1,6 @@
-import FormContact from './formConctact.js';
+import FormContact from './renders/formConctact.js';
 
 export default function NewContact(parentElement) {
-    console.log('hola')
     return {
         parent: document.querySelector(parentElement),
         render: function() {
