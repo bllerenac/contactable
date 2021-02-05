@@ -1,0 +1,14 @@
+.profile__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile__data {
+    display: block;
+}
+
+.profile {
+    padding: 16px 70px;
+}

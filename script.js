@@ -1,12 +1,19 @@
 import FormContactable from "./assets/scripts/formContactable.js";
+import Login from "./assets/scripts/log_in.js";
 import NewContact from "./assets/scripts/newContact.js";
-// console.log("hola2");
+import ShowContact from "./assets/scripts/showContact.js";
+
 function init() {
-  //   console.log("hola2");
-  // const create = NewContact(".js-content")
-  const list = FormContactable(".js-content");
-  list.render();
-  list.addFormSubmitListener();
+  const login = Login(".js-content");
+  login.render();
+  login.addFormSubmitListener(".js-content");
+  //const create = NewContact(".js-content")
+  //const view = ShowContact(".js-content")
+  //create.render()
+  // const list = FormContactable(".js-content");
+  // list.render();
+  // list.addFormSubmitListener();
+  view.render();
 }
 
 init();
