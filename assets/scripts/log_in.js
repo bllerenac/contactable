@@ -1,5 +1,6 @@
 import { login } from "./services/session_service.js";
-import STORE from "./store.JS";
+import FormContactable from "./formContactable.js";
+import STORE from "./store.js";
 
 export default function Login(parentElement){
 
@@ -32,8 +33,8 @@ export default function Login(parentElement){
     addFormSubmitListener: function(){
       
       this.parent.addEventListener("submit", async (e) =>{
+
         const form = this.parent.querySelector(".js-login-form");
-        console.log(form)
         if (form === e.target) {
           e.preventDefault();
           const {email, password} = form;
@@ -42,6 +43,9 @@ export default function Login(parentElement){
             const {id , email: dataEmail} = data;
             STORE.user = {id , email: dataEmail};
             sessionStorage.setItem("token", data.token);
+            // const list = FormContactable(".js-content");
+            // list.render();
+            // list.addFormSubmitListener();
           } catch(e){
             alert(e.message);
           }
