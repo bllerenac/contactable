@@ -9,6 +9,7 @@
     --background-black: #000000;
     --background-gray: #E8EAED;
     --background-gray-light: #F5F5F5; /* hover in contacts*/
+    --background-line: rgba(0, 0, 0, 0.12); ;
     --shadow-black: 0px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -23,6 +24,7 @@ body {
     font-style: normal;
     letter-spacing: 0;
     font-weight: 400;
+    margin: 0 10px;
 }
 
 .font-title {
