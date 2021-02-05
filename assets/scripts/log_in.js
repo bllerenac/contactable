@@ -1,4 +1,5 @@
 import { login } from "./services/session_service.js";
+import FormContactable from "./formContactable.js";
 import STORE from "./store.js";
 
 export default function Login(parentElement){
@@ -42,6 +43,9 @@ export default function Login(parentElement){
             const {id , email: dataEmail} = data;
             STORE.user = {id , email: dataEmail};
             sessionStorage.setItem("token", data.token);
+            // const list = FormContactable(".js-content");
+            // list.render();
+            // list.addFormSubmitListener();
           } catch(e){
             alert(e.message);
           }
