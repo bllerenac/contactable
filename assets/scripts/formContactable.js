@@ -1,6 +1,8 @@
+import li_contacts from "./renders/li_contacts.js";
 export default function FormContactable(parentElement) {
   return {
     parent: document.querySelector(parentElement),
+    //  contacs: li_contacts(parentElement),
     render: function () {
       const html = `
          <section>
@@ -10,8 +12,7 @@ export default function FormContactable(parentElement) {
          </div>
          <div class="js-contacts">
          <p> Contacs(10)<p>
-          coloca aqui tu metodo 
-      
+          ${li_contacts()}
          </div>
          <button class="js-NewContact">+</button>
          
@@ -26,18 +27,5 @@ export default function FormContactable(parentElement) {
         console.log("Ya me hiciste click");
       });
     },
-      // listContactable: function() {
-      //
-      // }
-      //   <div>
-      //     <img src="" alt="contact-image">
-      //       <li>Rick Hanlon</li>
-      //   </div>
-      // }
-
-
-
-
-
   };
 }
