@@ -7,11 +7,11 @@ function init() {
     const login = Login(".js-content");
     // login.render();
     // login.addFormSubmitListener(".js-content");
-    const create = NewContact(".js-content")
-    //const view = ShowContact(".js-content")
-    create.render()
-    create.addNewContactListener()
-    // view.render()
+    // const create = NewContact(".js-content")
+   const view = ShowContact(".js-content")
+    // create.render()
+    // create.addNewContactListener()
+    view.render()
 }
 
 init();
