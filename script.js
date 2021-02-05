@@ -6,6 +6,7 @@ function init() {
   // const create = NewContact(".js-content")
   const list = FormContactable(".js-content");
   list.render();
+  list.addFormSubmitListener();
 }
 
 init();
