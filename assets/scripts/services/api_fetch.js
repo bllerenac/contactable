@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/"
+const BASE_URL = "http://localhost:3000"
 
 async function apiFetch(...args) {
   const response = await fetch(...args);
@@ -7,7 +7,7 @@ async function apiFetch(...args) {
     throw new Error(error.exception);
   }
   if (response.status !== 204) {
-    return awaitresponse.json();
+    return await response.json();
   }
   return response.text;
 }
