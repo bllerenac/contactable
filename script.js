@@ -1,9 +1,13 @@
 import  NewContact from "./assets/scripts/newContact.js";
-console.log('hola2')
+import  ShowContact from "./assets/scripts/showContact.js";
+
+
 function init() {
-    console.log('hola2')
+
     const create = NewContact(".js-content")
-    create.render()
+    const view = ShowContact(".js-content")
+    //create.render()
+    view.render()
 }
 
 init()
