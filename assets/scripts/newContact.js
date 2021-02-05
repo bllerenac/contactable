@@ -1,31 +1,40 @@
 import FormContact from './renders/formConctact.js';
+import {createNewContactAPI} from "./services/contact_Transaction.js";
+import STORE from "./store.js";
 
 export default function NewContact(parentElement) {
     return {
         parent: document.querySelector(parentElement),
         render: function() {
             this.parent.innerHTML = FormContact('Create new contact');
-         }
-        // addFormSubmitListeners: function() {
-        //     this.parent.addEventListener('submit', (e) => {
-        //         const form = this.parent.querySelector(".js-login-form");
-        //         if (form === e.target) {
-        //             e.preventDefault()
-        //             const { email, password} = form;
-        //             try{
-        //                 const data = await login(email.value, password.value);
-        //                 const {id, email: dataEmail, first_name, last_name, phone} = data;
-        //                 STORE.user = {id, email: dataEmail, first_name, last_name, phone};
-        //                 sessionStorage.setItem('token', data.token);
-        //                 if(data.token) {
-        //                     let main = Main("js-content");
-        //                     main.render()
-        //                 }
-        //             }catch(e){
-        //                 alert(e.message);
-        //             }
-        //         }
-        //     });
-        // }
+         },
+
+        addNewContactListener: function(){
+
+            this.parent.addEventListener("submit", async (e) =>{
+
+                const form = this.parent.querySelector(".js-contact-form");
+
+                /*  alert(form.name.value)
+                    alert(form.number.value)
+                    alert(form.email.value)
+                    alert(form.relation.value)
+                */
+
+                if (form === e.target) {
+                    e.preventDefault();
+                    const {name, number, email, relation} = form;
+
+                    try {
+                        const newData = await createNewContactAPI(name.value, number.value, email.value, relation.value);
+                        // const {id , email: dataEmail} = newData;
+                        // STORE.user = {id , email: dataEmail};
+                        // sessionStorage.setItem("token", data.token);
+                    } catch(e){
+                        alert(e.message);
+                    }
+                }
+            });
+        },
     }
 }

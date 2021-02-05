@@ -17,7 +17,7 @@ export default function ViewProfile(title){
                </div>
                <div class="footer">
                   <button >Back</button>
-                  <button >Delete</button>
+                  <button class="delete-contact" >Delete</button>
                   <button type="submit">Edit</button>
                </div>
             </section>

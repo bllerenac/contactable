@@ -1,5 +1,5 @@
 import { login } from "./services/session_service.js";
-import STORE from "./store.JS";
+import STORE from "./store.js";
 
 export default function Login(parentElement){
 
@@ -32,8 +32,8 @@ export default function Login(parentElement){
     addFormSubmitListener: function(){
       
       this.parent.addEventListener("submit", async (e) =>{
+
         const form = this.parent.querySelector(".js-login-form");
-        console.log(form)
         if (form === e.target) {
           e.preventDefault();
           const {email, password} = form;
