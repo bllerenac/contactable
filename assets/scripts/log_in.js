@@ -1,9 +1,10 @@
 import { login } from "./services/session_service.js";
+import STORE from "./store.JS";
 
 export default function Login(parentElement){
 
   return {
-      
+
     parent: document.querySelector(parentElement),
 
     render: function () {
@@ -13,7 +14,7 @@ export default function Login(parentElement){
       <form class="js-login-form">
         <div>
           <label>Username</label>
-          <input type="text" name="username" placeholder="username">
+          <input type="text" name="email" placeholder="email">
         </div>
         <div>
           <label>Password</label>
@@ -29,13 +30,17 @@ export default function Login(parentElement){
     },
 
     addFormSubmitListener: function(){
+      
       this.parent.addEventListener("submit", async (e) =>{
         const form = this.parent.querySelector(".js-login-form");
+        console.log(form)
         if (form === e.target) {
           e.preventDefault();
-          const {email,password} = form;
+          const {email, password} = form;
           try {
             const data = await login(email.value, password.value);
+            const {id , email: dataEmail} = data;
+            STORE.user = {id , email: dataEmail};
             sessionStorage.setItem("token", data.token);
           } catch(e){
             alert(e.message);
