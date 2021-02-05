@@ -9,21 +9,30 @@ export default function Login(parentElement){
 
     render: function () {
       const html =  `
-      <section>
-      <h2>Login</h2>
-      <form class="js-login-form">
-        <div>
-          <label>Username</label>
-          <input type="text" name="email" placeholder="email">
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="text" name="password" placeholder="*********">
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <section class="login_home">
+        <section class="login_home_image"> <img src="./assets/images/03.jpg" alt="home image"></section>
+        <section class="login-container">
+          <div class="form_container">
+            <div class="form_title-container">
+            <a href="#" class="form__tittle">Sign In</a>
+            <p>or</p>
+            <a href="#" class="form__tittle">Sign Up</a>
+            </div>
+            <form class="js-login-form">
+              <div class="form_input_data">
+                <label>USERNAME</label><br>
+                <input type="text" name="email" placeholder="email">
+              </div>
+              <div class="form_input_data">
+                <label class="form_label">PASSWORD</label><br>
+                <input type="password" name="password" placeholder="*********">
+              </div>
+              <div>
+                <button class="from__button" type="submit">Sign In</button>
+              </div>
+            </form>
+          </div>
+        </section>
       </section>
       `;
       this.parent.innerHTML = html;

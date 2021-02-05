@@ -14,4 +14,4 @@ apiFetch(`${BASE_URL}/logout`, {
   headers: {
     Authorization: `Token token=${sessionStorage.getItem("token")}`,
   },
-});
+}); 
