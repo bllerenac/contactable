@@ -1,8 +1,12 @@
 import li_contacts from "./renders/li_contacts.js";
+
+import STORE from "./store.js";
+
+import { listContacts } from "./services/list_Contacts.js";
+
 export default function FormContactable(parentElement) {
   return {
     parent: document.querySelector(parentElement),
-    //  contacs: li_contacts(parentElement),
     render: function () {
       const html = `
          <section>
@@ -18,12 +22,11 @@ export default function FormContactable(parentElement) {
          
          </section>
       `;
-      // const parent = document.querySelector(parentElement);
       this.parent.innerHTML = html;
     },
     addFormSubmitListener: function () {
       const button = this.parent.querySelector(".js-NewContact");
-      button.addEventListener("click", (e) => {
+      button.addEventListener("click", async (e) => {
         console.log("Ya me hiciste click");
       });
     },

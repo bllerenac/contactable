@@ -1,6 +1,9 @@
 import { login } from "./services/session_service.js";
 import FormContactable from "./formContactable.js";
+
 import STORE from "./store.js";
+
+import { listContacts } from "./services/list_Contacts.js";
 
 export default function Login(parentElement) {
   return {
@@ -40,6 +43,13 @@ export default function Login(parentElement) {
             STORE.user = { id, email: dataEmail };
             sessionStorage.setItem("token", data.token);
             const list = FormContactable(".js-content");
+
+            const contacs = await listContacts();
+            STORE.contacts = contacs;
+            console.log(STORE);
+            console.log(STORE.contacts);
+            console.log(STORE);
+
             list.render();
             list.addFormSubmitListener();
           } catch (e) {
