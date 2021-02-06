@@ -1,16 +1,14 @@
-import { login } from "./services/session_service.js";
-import FormContactable from "./formContactable.js";
-
+import { signup } from "./services/session_service.js";
 import STORE from "./store.js";
 
-import { listContacts } from "./services/list_Contacts.js";
+export default function Signup(parentElement){
 
-export default function Login(parentElement) {
   return {
+
     parent: document.querySelector(parentElement),
 
     render: function () {
-      const html = `
+      const html =  `
       <section class="login_home">
         <section class="login_home_image"> <img src="./assets/images/03.jpg" alt="home image"></section>
         <section class="login-container">
@@ -30,7 +28,7 @@ export default function Login(parentElement) {
                 <input type="password" name="password" placeholder="*********">
               </div>
               <div>
-                <button class="from__button" type="submit">Sign In</button>
+                <button class="from__button" type="submit">Sign Up</button>
               </div>
             </form>
           </div>
@@ -40,33 +38,25 @@ export default function Login(parentElement) {
       this.parent.innerHTML = html;
     },
 
-    addFormSubmitListener: function () {
-      this.parent.addEventListener("submit", async (e) => {
+    addFormSubmitListener: function(){
+      
+      this.parent.addEventListener("submit", async (e) =>{
         const form = this.parent.querySelector(".js-login-form");
-        console.log("click");
+        console.log("click")
         if (form === e.target) {
           e.preventDefault();
-          const { email, password } = form;
+          const {email, password} = form;
           try {
-            const data = await login(email.value, password.value);
-            const { id, email: dataEmail } = data;
-            STORE.user = { id, email: dataEmail };
+            const data = await signup(email.value, password.value);
+            const {id , email: dataEmail} = data;
+            STORE.user = {id , email: dataEmail};
             sessionStorage.setItem("token", data.token);
-            const list = FormContactable(".js-content");
-
-            const contacs = await listContacts();
-            STORE.contacts = contacs;
-            console.log(STORE);
-            console.log(STORE.contacts);
-            console.log(STORE);
-
-            list.render();
-            list.addFormSubmitListener();
-          } catch (e) {
+          } catch(e){
             alert(e.message);
           }
         }
       });
     },
+
   };
 }
