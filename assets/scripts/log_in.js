@@ -1,4 +1,5 @@
 import { login } from "./services/session_service.js";
+import Signup from "./sign_up.js";
 import FormContactable from "./formContactable.js";
 
 import STORE from "./store.js";
@@ -16,9 +17,9 @@ export default function Login(parentElement) {
         <section class="login-container">
           <div class="form_container">
             <div class="form_title-container">
-            <a href="#" class="form__tittle">Sign In</a>
+            <a href="#" class="js-signin form__tittle active">Sign In</a>
             <p>or</p>
-            <a href="#" class="form__tittle">Sign Up</a>
+            <a href="#" class="js-signup form__tittle">Sign Up</a>
             </div>
             <form class="js-login-form">
               <div class="form_input_data">
@@ -67,6 +68,20 @@ export default function Login(parentElement) {
           }
         }
       });
+    },
+
+    addSignUpViewListener: function() {
+      this.parent.addEventListener("click", (e) => {
+        const signupLink = this.parent.querySelector(".js-signup");
+        const loginLink = this.parent.querySelector(".js-signin")
+        console.log("hola mundo")
+        if (signupLink === e.target) {
+          e.preventDefault();
+          const signup = Signup(".login-container");
+          loginLink.classList.remove("active");
+          signup.render();
+        }
+      })
     },
   };
 }

@@ -1,3 +1,4 @@
+import Login from "./log_in.js";
 import { signup } from "./services/session_service.js";
 import STORE from "./store.js";
 
@@ -9,14 +10,11 @@ export default function Signup(parentElement){
 
     render: function () {
       const html =  `
-      <section class="login_home">
-        <section class="login_home_image"> <img src="./assets/images/03.jpg" alt="home image"></section>
-        <section class="login-container">
           <div class="form_container">
             <div class="form_title-container">
-            <a href="#" class="form__tittle">Sign In</a>
+            <a href="#" class="js-signin form__tittle">Sign In</a>
             <p>or</p>
-            <a href="#" class="form__tittle">Sign Up</a>
+            <a href="#" class="js-signup form__tittle active">Sign Up</a>
             </div>
             <form class="js-login-form">
               <div class="form_input_data">
@@ -32,8 +30,6 @@ export default function Signup(parentElement){
               </div>
             </form>
           </div>
-        </section>
-      </section>
       `;
       this.parent.innerHTML = html;
     },
@@ -56,6 +52,20 @@ export default function Signup(parentElement){
           }
         }
       });
+    },
+
+    addSigninViewListener: function() {
+      this.parent.addEventListener("click", (e) => {
+        const signupLink = this.parent.querySelector(".js-signup");
+        const loginLink = this.parent.querySelector(".js-signin");
+        console.log("hola mundo")
+        if (loginLink === e.target) {
+          e.preventDefault();
+          const login = Login(".js-content");
+          signupLink.classList.remove("active");
+          login.render();
+        }
+      })
     },
 
   };
