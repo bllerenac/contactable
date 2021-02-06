@@ -1,8 +1,7 @@
-import { login } from "./services/session_service.js";
-import FormContactable from "./formContactable.js";
+import { signup } from "./services/session_service.js";
 import STORE from "./store.js";
 
-export default function Login(parentElement){
+export default function Signup(parentElement){
 
   return {
 
@@ -29,7 +28,7 @@ export default function Login(parentElement){
                 <input type="password" name="password" placeholder="*********">
               </div>
               <div>
-                <button class="from__button" type="submit">Sign In</button>
+                <button class="from__button" type="submit">Sign Up</button>
               </div>
             </form>
           </div>
@@ -42,20 +41,16 @@ export default function Login(parentElement){
     addFormSubmitListener: function(){
       
       this.parent.addEventListener("submit", async (e) =>{
-
         const form = this.parent.querySelector(".js-login-form");
         console.log("click")
         if (form === e.target) {
           e.preventDefault();
           const {email, password} = form;
           try {
-            const data = await login(email.value, password.value);
+            const data = await signup(email.value, password.value);
             const {id , email: dataEmail} = data;
             STORE.user = {id , email: dataEmail};
             sessionStorage.setItem("token", data.token);
-            // const list = FormContactable(".js-content");
-            // list.render();
-            // list.addFormSubmitListener();
           } catch(e){
             alert(e.message);
           }
