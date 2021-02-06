@@ -1,0 +1,21 @@
+.login_home{
+  display: flex;
+  flex-direction: row;
+}
+.login_home_image{
+  width: 70%;
+  height: 100vh;
+}
+.login_home_image img{
+  width: 100%;
+  height: 100%;
+}
+.login-container{
+  display: flex;
+  background: linear-gradient(to top, #212E3F, #384B63);
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
